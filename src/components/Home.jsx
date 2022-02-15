@@ -9,70 +9,79 @@ import InputForm from './InputForm';
 const Home = (props) => {
   const [messageList, setMessageList] = useState([]);
 
-  useEffect(() => {getMessages()}, []);
+  useEffect(() => {
+    getMessages();
+  }, []);
 
   const getMessages = () => {
-    console.log(props.id);
     axios(`http://localhost:3000/api`)
-    .then(response => {
-      setMessageList(response.data);
-      // console.log('message list', messageList);
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      .then((response) => {
+        setMessageList(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = (e) => {
-
     const messageId = uuidv4();
 
-    if(e.target.value[0] === undefined){
-      alert("Message contains no value, ESSTUPIDD.")
-    }
-    else{
+    if (e.target.value[0] === undefined) {
+      alert('Message contains no value, ESSTUPIDD.');
+    } else {
       //database update
-      axios.post('http://localhost:3000/api', {
-        id: messageId,  
-        message: e.target.value
-      }, { withCredentials: true, credentials: 'include'})
-    
-      //state update
-      setMessageList([...messageList, {
-        id: messageId,
-        message: e.target.value
-      }])
-    }
-  }
+      axios.post(
+        'http://localhost:3000/api',
+        {
+          id: messageId,
+          message: e.target.value,
+        },
+        { withCredentials: true, credentials: 'include' }
+      );
 
+      //state update
+      setMessageList([
+        ...messageList,
+        {
+          id: messageId,
+          message: e.target.value,
+        },
+      ]);
+    }
+  };
 
   const deleteMessage = (id, e) => {
     e.preventDefault();
-    axios.delete(`http://localhost:3000/api/${id}`,
-    { withCredentials: true, credentials: 'include'})
-    .then(response => {
-      setMessageList(messageList.filter(message => {
-        return message.id !== id;
-      }))
-    })
-    .catch(err => {
-      console.log(err)
-    })
+    axios
+      .delete(`http://localhost:3000/api/${id}`, {
+        withCredentials: true,
+        credentials: 'include',
+      })
+      .then((response) => {
+        setMessageList(
+          messageList.filter((message) => {
+            return message.id !== id;
+          })
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <div>
       <div id="title">
-        <img src={logo} id="logo"/>
+        <img src={logo} id="logo" />
         <h1>DATCORD</h1>
       </div>
-      <MessageContainer 
-        messageList={messageList} 
+      <MessageContainer
+        messageList={messageList}
         deleteMessage={deleteMessage}
       />
-      <InputForm handleSubmit={handleSubmit}/>
+      <InputForm handleSubmit={handleSubmit} />
     </div>
-  )
-}
+  );
+};
 
 export default Home;
