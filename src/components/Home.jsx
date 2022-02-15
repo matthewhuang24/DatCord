@@ -27,7 +27,7 @@ const Home = (props) => {
     const messageId = uuidv4();
 
     if (e.target.value[0] === undefined) {
-      alert('Message contains no value, ESSTUPIDD.');
+      alert('Message contains no value.');
     } else {
       //database update
       axios.post(
