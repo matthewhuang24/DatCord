@@ -1,0 +1,53 @@
+{
+  "name": "datcord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \" webpack \" \"cross-env NODE_ENV=development webpack-dev-server \" \" nodemon ./server/server.js\" ",
+    "build": "webpack",
+    "prod": "concurrently \" webpack \" \"cross-env NODE_ENV=production webpack-serve \" \" nodemon ./server/server.js\" ",
+    "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewhuang24/DatCord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthewhuang24/DatCord/issues"
+  },
+  "homepage": "https://github.com/matthewhuang24/DatCord#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-modal": "^3.14.4",
+    "react-router": "^6.2.1",
+    "react-router-dom": "^6.2.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "babel-loader": "^8.2.3",
+    "concurrently": "^7.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "file-loader": "^6.2.0",
+    "nodemon": "^2.0.15",
+    "react-hot-loader": "^4.13.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
+  }
+}

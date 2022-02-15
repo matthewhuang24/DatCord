@@ -1,0 +1,58 @@
+* {
+  background-color: rgb(54, 54, 214);
+  color: white;
+  text-align: center
+}
+
+#messageContainer {
+    width: 500px;
+    height: 500px;
+    border: solid white;
+    margin: auto;
+    overflow: auto;
+    border-radius: 5px;
+}
+
+.messageForm {
+    border-radius: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 5px 5px 5px;
+}
+
+.messages {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+}
+
+#textBox {
+  margin: 10px;
+  /* background-color: white; */
+}
+
+button {
+  border-radius: 25px;
+}
+
+h1 {
+  font-family: 'Bangers', cursive;
+  font-size: 50px;
+}
+
+#logo {
+  height: 80px;
+  width: 80px;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
