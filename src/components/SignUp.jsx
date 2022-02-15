@@ -20,7 +20,7 @@ const SignUp = (props) => {
         { withCredentials: true, credentials: 'include' }
       )
       .then((data) => {
-        window.location.replace('/');
+        // window.location.replace('/');
       })
       .catch((err) => {
         console.log(err);

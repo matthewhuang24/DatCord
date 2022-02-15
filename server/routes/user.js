@@ -5,6 +5,7 @@ const userController = require('../controllers/userController');
 //login
 router.post(
   '/',
+  userController.getHash,
   userController.getUser,
   userController.setCookie,
   (req, res) => {

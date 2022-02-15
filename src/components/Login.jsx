@@ -17,16 +17,17 @@ const Login = (props) => {
         { withCredentials: true, credentials: 'include' }
       )
       .then((response) => {
-        if (response.data[0].id) {
+        const id = response.data[0].id;
+        console.log('id', id);
+        if (id) {
           // setting ID state to confirmed/retrieved username/password combination
-
-          props.setLoginId(response.data[0].id);
-          console.log('id', props.id);
+          // props.setLoginId(response.data[0].id);
           // link to home
-          window.location.replace('/');
+          // window.location.replace('/');
         } else {
           //link to signup
-          window.location.replace('/signup');
+          // window.location.replace('/signup');
+          alert('incorrect username/password');
         }
       });
   };
